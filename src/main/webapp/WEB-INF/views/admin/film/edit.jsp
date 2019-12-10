@@ -100,6 +100,66 @@
 		</div>
 	</div>
 
-	
+	<script> 
+		$('#btnAddOrUpdateFilm').click(function(e) {
+			e.preventDefault();
+			var data = {};
+			var formData = $('#formSubmit').serializeArray();
+			$.each(formData, function(i, v) {
+				data["" + v.name + ""] = v.value;
+			});
+			
+			var files = $("#thumbnail")[0].files[0];
+		    if (files != undefined) {
+	            var reader = new FileReader();
+	            reader.onload = function(e) {
+	                data["thumbnailBase64"] = e.target.result;
+	                data["thumbnail"] = files.name;
+	             	// nếu tồn tại id trong form thì gọi update ngược lại thì gọi add
+	    			var id = $('#filmId').val();
+	    			if (id == "") {
+	    				addFilm(data);
+	    			} else {
+	    				updateFilm(data);
+	    			}
+	            };
+	            reader.readAsDataURL(files);
+			}
+		});
+		
+		function addFilm(data) {
+			$.ajax({
+	            url: '${filmAPI}',
+	            type: 'POST',
+	            contentType: 'application/json',
+	            data: JSON.stringify(data),
+	            dataType: 'json',
+	            success: function (result) {
+	            	window.location.href = "${editFilmURL}?id="+result.id+"&message=insert_success";
+	            },
+	            error: function (error) {
+	            	window.location.href = "${filmURL}?page=1&limit=8&message=error_system";
+	            }
+	        });
+		}
+		
+		function updateFilm(data) {
+			// ajax là một kỹ thuật để làm việc với RESTFUL(JSON) API mà không cần quan tâm 
+			// đến phần front-end, có nhiệm vụ chuyển đổi data thành 1 định dạng chung là JSON
+			$.ajax({
+	            url: '${filmAPI}',  // Dẫn đến API sửa phim
+	            type: 'PUT', 		// Cho biết hàm API nào thực hiện "PUT là sửa"
+	            contentType: 'application/json', // Dữ liệu gửi từ client về server là json
+	            data: JSON.stringify(data), 	// chuyển đổi data nhận được thành JSON
+	            dataType: 'json',				// định nghĩa kiểu trả về cho client là json
+	            success: function (result) {
+	            	window.location.href = "${editFilmURL}?id="+result.id+"&message=update_success";
+	            },
+	            error: function (error) {
+	            	window.location.href = "${filmURL}?page=1&limit=8&message=error_system";
+	            }
+	        });
+		}
+	</script>
 </body>
 </html>
