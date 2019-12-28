@@ -1,4 +1,4 @@
-package com.qnu.service.impl;
+package com.qnu.service.imp;
 
 import java.util.ArrayList;
 import java.util.List;

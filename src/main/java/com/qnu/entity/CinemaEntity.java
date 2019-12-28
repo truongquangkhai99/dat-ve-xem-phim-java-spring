@@ -35,4 +35,9 @@ public class CinemaEntity extends BaseEntity{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public void setDescription(Object description) {
+		// TODO Auto-generated method stub
+		
+	}
 }

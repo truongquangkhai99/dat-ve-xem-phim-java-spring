@@ -10,5 +10,10 @@ public class CinemaDTO extends AbstractDTO<CinemaDTO>{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Object getDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
