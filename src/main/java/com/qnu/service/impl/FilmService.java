@@ -48,7 +48,7 @@ public class FilmService implements IFilmService {
 	}
 	
 	@Override
-	public int getTotalItem() {
+	public Integer getTotalItem() {
 		return (int) filmRepository.count();
 	}
 	

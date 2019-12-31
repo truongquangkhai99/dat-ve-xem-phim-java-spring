@@ -10,4 +10,6 @@ public interface IFilmService {
 	FilmDTO findById(long id);
 	FilmDTO save(FilmDTO dto);
 	List<FilmDTO> findAll(Pageable pageable);
+	Integer getTotalItem();
+	List<FilmDTO> findAlll();
 }
