@@ -1,4 +1,4 @@
-package com.qnu.service.imp;
+package com.qnu.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;

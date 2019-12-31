@@ -35,4 +35,11 @@ public class FilmController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/film-detail", method = RequestMethod.GET)
+	public ModelAndView showFilmDetail(@RequestParam("id") int id, HttpServletRequest request) {
+		FilmDTO model = filmService.findById(id);
+		ModelAndView mav = new ModelAndView("web/film-detail");
+		mav.addObject("model", model);
+		return mav;
+	}
 }
