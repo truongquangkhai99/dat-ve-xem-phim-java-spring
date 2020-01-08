@@ -1,104 +1,121 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-
-<jsp:useBean id="now" class="java.util.Date" />
-<fmt:formatDate var="y" value="${now}" pattern="yyyy" />
-<fmt:formatDate var="m" value="${now}" pattern="MM" />
-<fmt:formatDate var="d" value="${now}" pattern="dd" />
-
 <html>
+<head>
+<meta charset="UTF-8">
+<title>Trang chủ</title>
+</head>
+<body id="page-top">
 
-<head> <title>Trang chủ</title> </head>
+	<div id="content-wrapper">
 
-<body>
-	<!-- Masthead -->
-	<header class="masthead">
-		<div class="container h-100">
-			<div
-				class="row h-100 align-items-center justify-content-center text-center">
-				<div class="col-lg-10 align-self-end">
-					<h1 class="text-uppercase text-white font-weight-bold">Báo cáo cuối kỳ học phần 
-					Công nghệ Java</h1>
-					<hr class="divider my-4">
-				</div>
-				<div class="col-lg-8 align-self-baseline">
-					<p class="text-white-75 font-weight-light mb-5">Qnu Cinema là website đặt quản lý rạp 
-						chiếu phim đơn giản sử dụng Spring MVC + Spring Security + 
-						Spring Data JPA (Hibernate implementation)</p>
-						
-					<c:url var="dateParam" value='/schedule'>
-  						<c:param name="date" value="${y}-${m}-${d}"/>
-  					</c:url>
-					<a class="btn btn-primary btn-xl js-scroll-trigger" href="${dateParam}">Xem lịch chiếu phim</a>
-				</div>
-			</div>
-		</div>
-	</header>
+		<div class="container-fluid">
 
-	<!-- Film Section -->
-	<section class="page-section bg-primary" id="about">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<h2 class="text-white mt-0">Xem các phim đang chiếu</h2>
-					<hr class="divider light my-4">
-					<a class="btn btn-light btn-xl js-scroll-trigger" href="<c:url value='/list-film?page=1&limit=9'/>">Xem tại đây</a>
-				</div>
-			</div>
-		</div>
-	</section>
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#">Trang quản trị</a></li>
+				<li class="breadcrumb-item active">Tổng quan</li>
+			</ol>
 
-	<!-- Services Section -->
-	<section class="page-section" id="services">
-		<div class="container">
-			<h2 class="text-center mt-0">Các hoạt động khuyến mãi của chúng tôi!</h2>
-			<hr class="divider my-4">
+			<!-- Icon Cards-->
 			<div class="row">
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="mt-5">
-						<i class="fas fa-4x fa-gem text-primary mb-4"></i>
-						<h3 class="h4 mb-2">Sturdy Themes</h3>
-						<p class="text-muted mb-0">Our themes are updated regularly to
-							keep them bug free!</p>
+				<div class="col-xl-3 col-sm-6 mb-3">
+					<div class="card text-white bg-primary o-hidden h-100">
+						<div class="card-body">
+							<div class="card-body-icon">
+								<i class="fas fa-fw fa-comments"></i>
+							</div>
+							<div class="mr-5">26 New Messages!</div>
+						</div>
+						<a class="card-footer text-white clearfix small z-1" href="#">
+							<span class="float-left">View Details</span> <span
+							class="float-right"> <i class="fas fa-angle-right"></i>
+						</span>
+						</a>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="mt-5">
-						<i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-						<h3 class="h4 mb-2">Up to Date</h3>
-						<p class="text-muted mb-0">All dependencies are kept current
-							to keep things fresh.</p>
+				<div class="col-xl-3 col-sm-6 mb-3">
+					<div class="card text-white bg-warning o-hidden h-100">
+						<div class="card-body">
+							<div class="card-body-icon">
+								<i class="fas fa-fw fa-list"></i>
+							</div>
+							<div class="mr-5">11 New Tasks!</div>
+						</div>
+						<a class="card-footer text-white clearfix small z-1" href="#">
+							<span class="float-left">View Details</span> <span
+							class="float-right"> <i class="fas fa-angle-right"></i>
+						</span>
+						</a>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="mt-5">
-						<i class="fas fa-4x fa-globe text-primary mb-4"></i>
-						<h3 class="h4 mb-2">Ready to Publish</h3>
-						<p class="text-muted mb-0">You can use this design as is, or
-							you can make changes!</p>
+				<div class="col-xl-3 col-sm-6 mb-3">
+					<div class="card text-white bg-success o-hidden h-100">
+						<div class="card-body">
+							<div class="card-body-icon">
+								<i class="fas fa-fw fa-shopping-cart"></i>
+							</div>
+							<div class="mr-5">123 New Orders!</div>
+						</div>
+						<a class="card-footer text-white clearfix small z-1" href="#">
+							<span class="float-left">View Details</span> <span
+							class="float-right"> <i class="fas fa-angle-right"></i>
+						</span>
+						</a>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="mt-5">
-						<i class="fas fa-4x fa-heart text-primary mb-4"></i>
-						<h3 class="h4 mb-2">Made with Love</h3>
-						<p class="text-muted mb-0">Is it really open source if it's
-							not made with love?</p>
+				<div class="col-xl-3 col-sm-6 mb-3">
+					<div class="card text-white bg-danger o-hidden h-100">
+						<div class="card-body">
+							<div class="card-body-icon">
+								<i class="fas fa-fw fa-life-ring"></i>
+							</div>
+							<div class="mr-5">13 New Tickets!</div>
+						</div>
+						<a class="card-footer text-white clearfix small z-1" href="#">
+							<span class="float-left">View Details</span> <span
+							class="float-right"> <i class="fas fa-angle-right"></i>
+						</span>
+						</a>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
 
-	<!-- Call to Action Section -->
-	<section class="page-section bg-dark text-white">
-		<div class="container text-center">
-			<h2 class="mb-4">Xem các phim sắp chiếu!</h2>
-			<a class="btn btn-light btn-xl" href="#">Ngay tại đây</a>
 		</div>
-	</section>
+		<!-- /.container-fluid -->
 
+	</div>
+	<!-- /.content-wrapper -->
+	
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Bạn có muốn
+						đăng xuất?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Chọn "Đồng ý" nếu bạn muốn rời khỏi
+					trang quản trị.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Hủy bỏ</button>
+					<a class="btn btn-primary" href="login.html">Đồng ý</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-
 </html>

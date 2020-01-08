@@ -2,11 +2,12 @@
 <%@include file="/common/taglib.jsp"%>
 <c:url var="filmAPI" value="/api-film"/>
 <c:url var="filmURL" value="/admin-film-list"/>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Danh sách phim</title>
+	<meta charset="UTF-8">
+	<title>Danh sách phim</title>
 </head>
 <body id="page-top">
 	<div id="content-wrapper">
